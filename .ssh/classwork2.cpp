@@ -1,86 +1,52 @@
 #include <iostream>
-unsigned short siPyth(
-long long a;
-long long b;
-long long c;);
-int main() {
-usning u_t =unsigned;
-u_t a=0,b=0,c=0;
-std::cin >> c >> b;
+#include <climits>
+unsigned short isPyth(
+size_t a=0,
+size_t b=0,
+size_t c=0);
+int main() 
+{
+    size_t a=0,b=0,c=0, count=0;
+    std::cin >> c >> b;
+    size_t count =0;
 
-size_t count =0;
-while (std::cin==a) {
-count=isPyth(a,b,c)?1:0;
-c=b
-b=a
-}
-if (std::cin.eof()){
-std::cout << count;
-std::cout << "\n";
-} else if (std::cin.fail()){
-std::cerr << "Error\n";
-} return 1;
-}
+    while (!((std::cin.eof())||(std::cin.fail()))) { //Учел ваще предложение о том, чтобы поместить отслеживание ошибок в условие цикла
+        std::cin >> a;
+        if (isPyth(a,b,c)==1)
+        c=b;
+        b=a;
+    }
 
-isPyth(
-unsigned a;
-unsigned b;
-unsigned c;);
-#include <iostream>
-int main() {
-usning u_t =unsigned;
-u_t a=0;
-size_t count =0;
-while (std::cin==a) {
-count =a*a;
-}
-if (std::cin.eof()){
-std::cout << count;
-std::cout << "\n";
-} else if (std::cin.fail()){
-std::cerr << "Error\n";
-} return 1;
-#include <iostream>
-bool siPyth(
-unsigned a;
-unsigned b;
-unsigned c;);
-int main() {
-usning u_t =unsigned;
-u_t a=0,b=0,c=0;
-std::cin >> c >> b;
-size_t count =0;
-while (std::cin==a) {
-count=isPyth(a,b,c)<2?1:0;
-if (isPyth(a,b,c)==2){std::cerr <<""}
-c=b
-b=a
-}
-if (std::cin.eof()){
-std::cout << count;
-std::cout << "\n";
-} else if (std::cin.fail()){
-std::cerr << "Error\n";
-} return 1;
+    if (std::cin.eof()){
+        std::cout << count;
+        std::cout << "\n";
+    } 
+    else if (std::cin.fail()){
+    std::cerr << "Error\n"; }
+    return 1;
 }
 
 unsigned short isPyth(
-long long a;
-long long b;
-long long c;){
-long long d=0;
-unsigned short p1=0;
-if (a>b) {d=a; a=b; b=d;}
-if (b>c) {d=b; b=c; c=d;}
-if (c>a) {d=c; c=a; a=d;}
-if (b>0){
-if ((ULONG_MAX/a>a)) {return 2}}
-else if ((ULONG_MAX/b>b)&&(ULONG_MAX/c>c)) {if (ULONG_MAX-c*c<b*b){return 2}}
-else (a>ULONG_MAX+b)
-bool p =(a*a=b*b+c*c);
-p=p||(b*b=a*a+c*c);
-p=p||(c*c=b*b+a*a);
-if (p) {p1=1}
-return p1;
+size_t a,
+size_t b,
+size_t c){
+    size_t d=0;
+    unsigned short p1=0;
+    bool p;
+
+    if (a>b) {d=a; a=b; b=d;}
+    if (b>c) {d=b; b=c; c=d;}
+    if (c>a) {d=c; c=a; a=d;}
+
+    if ((ULONG_MAX/a>a)) {return 2;}
+    if ((a==0)||(b==0)||(c==0)) {return 0;}
+                                             //Я убрал проверки связанные с целыми тк как их проверки не соответствую условию
+    bool p =(a*a==b*b+c*c);                 // задачи. Стороны не могут быть отрицательными
+    p=p||(b*b==a*a+c*c);
+    p=p||(c*c==b*b+a*a);
+    if (p) {p1=1;}
+    return p1;                              //Прощу прощения за то что костыльно не как вы показывали устроил вывод функции
+                                            // Было в лом, обещаю принести безсахарную кока колу за это
 }
-}
+
+
