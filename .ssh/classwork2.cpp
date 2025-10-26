@@ -12,7 +12,8 @@ int main()
 
     while (!((std::cin.eof())||(std::cin.fail()))) { //Учел ваще предложение о том, чтобы поместить отслеживание ошибок в условие цикла
         std::cin >> a;
-        if (isPyth(a,b,c)==1)
+        if (isPyth(a,b,c)==1) {count++}
+        else if (isPyth(a,b,c)==2) {return 2;}
         c=b;
         b=a;
     }
